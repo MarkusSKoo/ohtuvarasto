@@ -15,8 +15,8 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install Poetry
-        run: pip install "poetry>=1.5.1"
+        run: pip install poetry
       - name: Install dependencies
-        run: poetry install --with dev
+        run: poetry install
       - name: Run tests
         run: poetry run coverage run --branch -m pytest

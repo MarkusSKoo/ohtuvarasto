@@ -17,13 +17,7 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
       - name: Install dependencies
-        run: |
-          # install project deps (including dev deps) using Poetry
-          poetry install --no-interaction --no-ansi
-
-          # ensure coverage is available inside the poetry virtualenv
-          poetry run pip install --upgrade pip
-          poetry run pip install coverage
+        run: poetry install
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
 

@@ -39,7 +39,8 @@ class TestVarastoBranches(unittest.TestCase):
 
     def test_str_palauttaa_odotetun(self):
         v = Varasto(10, 5)
-        self.assertEqual(str(v), f"saldo = {v.saldo}, vielä tilaa {v.paljonko_mahtuu()}")
+        self.assertEqual(
+            str(v), f"saldo = {v.saldo}, vielä tilaa {v.paljonko_mahtuu()}")
 
 
 if __name__ == '__main__':

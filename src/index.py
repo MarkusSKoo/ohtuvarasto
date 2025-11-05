@@ -44,14 +44,13 @@ def testaa_virhetilanteet_lisaa(olutta, mehua):
     mehua.lisaa_varastoon(-666.0)
     print(f"Mehuvarasto: {mehua}")
 
-def testaa_virhetilanteet_ota_olutta(olutta):
+def testaa_virhetilanteet_ota(olutta, mehua):
     print(f"Olutvarasto: {olutta}")
     print("olutta.ota_varastosta(1000.0)")
     saatiin = olutta.ota_varastosta(1000.0)
     print(f"saatiin {saatiin}")
     print(f"Olutvarasto: {olutta}")
 
-def testaa_virhetilanteet_ota_mehua(mehua):
     print(f"Mehuvarasto: {mehua}")
     print("mehua.otaVarastosta(-32.9)")
     saatiin = mehua.ota_varastosta(-32.9)
@@ -65,9 +64,7 @@ def main():
     testaa_setterit(mehua)
     testaa_virhetilanteet_huono()
     testaa_virhetilanteet_lisaa(olutta, mehua)
-    testaa_virhetilanteet_ota_olutta(olutta)
-    testaa_virhetilanteet_ota_mehua(mehua)
-
+    testaa_virhetilanteet_ota(olutta, mehua)
 
 if __name__ == "__main__":
     main()

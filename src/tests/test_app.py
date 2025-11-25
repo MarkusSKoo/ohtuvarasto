@@ -79,7 +79,8 @@ class TestFlaskApp(unittest.TestCase):
         self.assertNotIn('ToDelete', warehouses)
 
     def test_delete_nonexistent_warehouse(self):
-        response = self.client.post('/delete/NonExistent', follow_redirects=True)
+        response = self.client.post('/delete/NonExistent',
+                                    follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 

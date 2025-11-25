@@ -51,8 +51,8 @@ def _flash_add_result(maara, available_space):
         flash(msg, 'warning')
 
 
-def _flash_remove_result(maara, removed, current_balance):
-    if maara <= current_balance:
+def _flash_remove_result(maara, removed):
+    if removed == maara:
         flash(f'Successfully removed {removed} from warehouse.', 'success')
     else:
         not_removed = maara - removed
@@ -66,9 +66,8 @@ def _handle_edit_action(varasto, action, maara):
         varasto.lisaa_varastoon(maara)
         _flash_add_result(maara, available_space)
     elif action == 'remove':
-        current_balance = varasto.saldo
         removed = varasto.ota_varastosta(maara)
-        _flash_remove_result(maara, removed, current_balance)
+        _flash_remove_result(maara, removed)
 
 
 def _handle_edit_post(name, varasto):

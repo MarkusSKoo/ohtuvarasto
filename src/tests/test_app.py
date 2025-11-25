@@ -1,5 +1,6 @@
 import unittest
 from app import app, warehouses
+from varasto import Varasto
 
 
 class TestFlaskApp(unittest.TestCase):
@@ -62,7 +63,6 @@ class TestFlaskApp(unittest.TestCase):
         self.assertIn(b'Invalid number format', response.data)
 
     def test_edit_warehouse_get(self):
-        from varasto import Varasto
         warehouses['Test'] = Varasto(100, 50)
         response = self.client.get('/edit/Test')
         self.assertEqual(response.status_code, 200)
@@ -73,7 +73,6 @@ class TestFlaskApp(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_delete_warehouse(self):
-        from varasto import Varasto
         warehouses['ToDelete'] = Varasto(10, 0)
         response = self.client.post('/delete/ToDelete', follow_redirects=True)
         self.assertEqual(response.status_code, 200)

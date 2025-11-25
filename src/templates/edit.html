@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ name }} - Warehouse Manager{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Warehouse: {{ name }}</h1>
+    
+    <div class="info" style="margin-bottom: 20px;">
+        <p><strong>Capacity:</strong> {{ varasto.tilavuus }}</p>
+        <p><strong>Current Balance:</strong> {{ varasto.saldo }}</p>
+        <p><strong>Available Space:</strong> {{ varasto.paljonko_mahtuu() }}</p>
+    </div>
+    
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+    
+    <h2>Add or Remove Content</h2>
+    
+    <form method="post">
+        <div class="form-group">
+            <label for="maara">Amount:</label>
+            <input type="number" id="maara" name="maara" step="0.01" min="0" value="0" required>
+        </div>
+        
+        <button type="submit" name="action" value="add" class="btn btn-primary">Add to Warehouse</button>
+        <button type="submit" name="action" value="remove" class="btn btn-danger">Remove from Warehouse</button>
+    </form>
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+{% endblock %}
